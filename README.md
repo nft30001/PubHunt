@@ -1,5 +1,6 @@
-# PubHunt - Hunt for Puzzles Public keys 
-forked from [PubHunt](https://github.com/kanhavishva/PubHunt)</br>
+# PubHunt - Hunt for Puzzles Public keys
+![alt text](https://raw.githubusercontent.com/phrutis/LostCoins/main/Others/puzzle.jpg "PubHunt")
+</br>forked from [PubHunt](https://github.com/kanhavishva/PubHunt)</br>
 
 ## It searches for random compressed Public keys for given hash160.
 
@@ -38,9 +39,11 @@ PubHunt [-check] [-h] [-v]
  inputFile                : List of the hash160, one per line in hex format (text mode)
 ```
 
-Example:
+- Run: ```PubHunt.exe -gi 0 -gx 9216,1024 hashP64.txt```
+- Run: ```PubHunt.exe -gi 0 -gx 8192,1024 hashP64.txt```
+
 ```
-C:\Users\BOSS>PubHunt.exe -gi 0 -gx 9216,1024 64.txt
+C:\Users\BOSS>PubHunt.exe -gi 0 -gx 9216,1024 hashP64.txt
 
 PubHunt v1.00 (24.12.2021 phrutis Edition)
 
