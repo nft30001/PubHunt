@@ -13,7 +13,7 @@ That's it, cheers 🍺
 
 ## How does it work
 A public key is randomly generated and compared with the hash160 of the [puzzle](https://privatekeys.pw/puzzles/bitcoin-puzzle-tx) address.</br>
-Random Public key -> Rimpd160 from address
+Random Public key -> hex ripemd160 from address
 
 ## According to theory 
 1 puzzle address(ripemd160) is equal to **79,228,162,514,264,337,593,543,950,336** private keys in 256 bit</br> 
