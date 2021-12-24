@@ -1,19 +1,26 @@
-# KeyHunt-Cuda 
-_Hunt for Bitcoin public keys._
+# PubHunt - Hunt for Puzzles Public keys 
+forked from [PubHunt](https://github.com/kanhavishva/PubHunt)</br>
 
-## It searches for random compressed public keys for given hash160.
+## It searches for random compressed Public keys for given hash160.
 
-#
-# The idea to do this
-
-This is only useful for Bitcoin [puzzle transaction](https://www.blockchain.com/btc/tx/08389f34c98c606322740c0be6a7125d9860bb8d5cb182c02f98461e5fa6cd15).
-
-For the puzzles ```64```, ```66```, ```67```, ```68```, ```69```, ```71``` or ```72``` and some more, there are no public keys are available, so if we can able to find public keys for those addresses, then [Pollard Kangaroo](https://github.com/JeanLucPons/Kangaroo) algorithm can be used to solve those puzzles.
-
+## The idea to do this
+This is only useful for Bitcoin [puzzle transaction](https://www.blockchain.com/btc/tx/08389f34c98c606322740c0be6a7125d9860bb8d5cb182c02f98461e5fa6cd15).</br>
+For the [puzzles](https://privatekeys.pw/puzzles/bitcoin-puzzle-tx) **64, 66, 67, 68, 69, 71** or **72** and some more... </br>
+There are no Public keys are available, so if we can able to find Public keys for those addresses. </br>
+Then [Collider](https://github.com/phrutis/Collider) algorithm can be used to solve those puzzles.</br>
 That's it, cheers 🍺 
 
-# Usage
+## How does it work
+A public key is randomly generated and compared with the hash160 of the [puzzle](https://privatekeys.pw/puzzles/bitcoin-puzzle-tx) address.</br>
+Random Public key -> Rimpd160 from address
 
+## According to theory 
+1 puzzle address(ripemd160) is equal to **79,228,162,514,264,337,593,543,950,336** private keys in 256 bit</br> 
+**79,228,162,514,264,337,593,543,950,336** private keys = **79,228,162,514,264,337,593,543,950,336** public keys</br>
+**79,228,162,514,264,337,593,543,950,336** public keys = **1** puzzle address</br>
+Therefore, the chance of finding an address collision is much higher. &#127870; &#x20BF;
+
+## Usage
 This is GPU only, no CPU support. 
 
 ```
@@ -31,31 +38,31 @@ PubHunt [-check] [-h] [-v]
  inputFile                : List of the hash160, one per line in hex format (text mode)
 ```
 
-For example:
+Example:
 ```
-PubHunt.exe -gi 0 -gx 4096,1024 hashP64.txt
+C:\Users\BOSS>PubHunt.exe -gi 0 -gx 9216,1024 64.txt
 
-PubHunt v1.00
+PubHunt v1.00 (24.12.2021 phrutis Edition)
 
 DEVICE       : GPU
 GPU IDS      : 0
-GPU GRIDSIZE : 4096x1024
+GPU GRIDSIZE : 9216x1024
 NUM HASH160  : 1
 OUTPUT FILE  : Found.txt
-GPU          : GPU #0 GeForce GTX 1650 (14x64 cores) Grid(4096x1024)
+GPU          : GPU #0 NVIDIA GeForce RTX 2070 (36x64 cores) Grid(9216x1024)
 
-[00:19:21] [GPU: 419.68 MH/s] [T: 469,803,991,040 (39 bit)] [F: 0]
+[00:10:37] [GPU: 363.60 Gkeys/s] [T: 242,432,650,248,192] [F: 0]
 ```
 
 ## Building
 ##### Windows
 - Microsoft Visual Studio Community 2019 
-- CUDA version 10.0
+- CUDA version [10.22](https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exenetwork)
 ##### Linux
  - Edit the makefile and set up the appropriate CUDA SDK and compiler paths for nvcc. Or pass them as variables to `make` command.
 
     ```make
-    CUDA       = /usr/local/cuda-11.0
+    CUDA       = /usr/local/cuda-11.5
     CXXCUDA    = /usr/bin/g++
     ```
  - To build CPU-only version (without CUDA support):
