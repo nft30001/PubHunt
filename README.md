@@ -39,11 +39,11 @@ PubHunt [-check] [-h] [-v]
  inputFile                : List of the hash160, one per line in hex format (text mode)
 ```
 
-- Run: ```PubHunt.exe -gi 0 -gx 9216,1024 hashP64.txt```
-- Run: ```PubHunt.exe -gi 0 -gx 8192,1024 hashP64.txt```
+- Run: ```PubHunt.exe -gi 0 -gx 9216,1024 puzzle64.txt```
+- Run: ```PubHunt.exe -gi 0 -gx 8192,1024 hashes160.txt```
 
 ```
-C:\Users\BOSS>PubHunt.exe -gi 0 -gx 9216,1024 hashP64.txt
+C:\Users\BOSS>PubHunt.exe -gi 0 -gx 9216,1024 puzzle64.txt
 
 PubHunt v1.00 (24.12.2021 phrutis Edition)
 
